@@ -12,9 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet{
 	
 	@Override
-	public void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void service(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
 		final String email = req.getParameter("email");
-		final String senha = req.getParameter("password");
+		final String senha = req.getParameter("senha");
 		
 		System.out.println("O email digitado foi: ".concat(email));
 		System.out.println("A senha digitada foi: ".concat(senha));
