@@ -13,12 +13,15 @@ import javax.servlet.http.HttpServletResponse;
 public class AgoraServlet extends HttpServlet{
 	
 	@Override
-	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
+		//Processamento de backend
 		Date data = new Date();
 		
-		String html = "<html><body><h1>" + data.toString() + "</h1></body></html>";
-	
-		resp.setContentType("text/html;charset=UTF-8");
-		resp.getWriter().print(html);
+		//Armazenar valores necessários para a JSP
+		req.setAttribute("dataHora", data);
+		
+		//Retornar para a página dataHoraCerta.jsp
+		req.getRequestDispatcher("dataHoraCerta.jsp")
+			.forward(req, resp);
 	}
 }
